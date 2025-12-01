@@ -76,7 +76,7 @@ int __EasyRTC_Data_Callback(void* userptr, const char* peerUUID, EASYRTC_DATA_TY
 	{
 		printf("Start Video..\n");
 
-		// ´ËÊ±ÓĞÓÃ»§ÇëÇó·¢ËÍÊÓÆµ
+		// ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµ
 		pChannel->sendFlag = 0x01;
 	}
 	else if (EASYRTC_CALLBACK_TYPE_START_AUDIO == dataType)
@@ -87,7 +87,7 @@ int __EasyRTC_Data_Callback(void* userptr, const char* peerUUID, EASYRTC_DATA_TY
 	{
 		printf("Stop Video..\n");
 
-		// ´ËÊ±ÓÃ»§ÒÑ¹Ø±ÕÊÓÆµ£¬Í£Ö¹·¢ËÍ
+		// ï¿½ï¿½Ê±ï¿½Ã»ï¿½ï¿½Ñ¹Ø±ï¿½ï¿½ï¿½Æµï¿½ï¿½Í£Ö¹ï¿½ï¿½ï¿½ï¿½
 		pChannel->sendFlag = 0x00;
 	}
 	else if (EASYRTC_CALLBACK_TYPE_STOP_AUDIO == dataType)
@@ -118,6 +118,12 @@ int __EasyRTC_Data_Callback(void* userptr, const char* peerUUID, EASYRTC_DATA_TY
 	{
 		printf("Peer Disconnect..\n");
 	}
+	else if (EASYRTC_CALLBACK_TYPE_PASSIVE_CALL == dataType)
+	{
+		printf("Passive call..  peerUUID[%s]\n", peerUUID);
+
+		return 1;		// è¿”å›1è¡¨ç¤ºè‡ªåŠ¨æ¥å—	å¦‚æœè¿”å›0,åˆ™éœ€è¦è°ƒç”¨EasyRTC_Device_PassiveCallResponseæ¥å¤„ç†è¯¥è¯·æ±‚: æ¥å—æˆ–æ‹’ç»
+	}                
 	else if (EASYRTC_CALLBACK_TYPE_PEER_CLOSED == dataType)
 	{
 		printf("Peer Close..\n");
@@ -133,10 +139,10 @@ wss://demo.easygbs.com:30402
 
 
 https://demo.easygbs.com:10010/
-ÓÃ»§ÃûÃÜÂë¶¼ÊÇ easygbs
+ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ë¶¼ï¿½ï¿½ easygbs
 
-ÑİÊ¾Æ½Ì¨¸üĞÂÁË
-RTCÉè±¸¶ËÉè±¸±àÂëºÍÍ¨µÀ±àÂëĞèÒª20Î»Éè±¸±àÂëµÄµÚ11-13ÎªÊÇ¡¾800¡¿£¬²»·ûºÏµÄ»á±»ÏŞÖÆ×¢²á¡£
+ï¿½ï¿½Ê¾Æ½Ì¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+RTCï¿½è±¸ï¿½ï¿½ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òª20Î»ï¿½è±¸ï¿½ï¿½ï¿½ï¿½Äµï¿½11-13Îªï¿½Ç¡ï¿½800ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÄ»á±»ï¿½ï¿½ï¿½ï¿½×¢ï¿½á¡£
 */
 
 int Easy_APICALL __RTSPClientCallBack(int _chid, void* _chPtr, int _frameType, char* _pBuf, EASY_FRAME_INFO* _frameInfo)
@@ -260,7 +266,7 @@ int main(int argc, char* argv[])
 	}
 
 
-	// ³õÊ¼»¯
+	// ï¿½ï¿½Ê¼ï¿½ï¿½
 	EasyRTC_Device_Init();
 
 	EASYRTC_CHANNEL_T	easyRTCChannel;
@@ -269,10 +275,10 @@ int main(int argc, char* argv[])
 	easyRTCChannel.id = 0;	
 	strcpy(easyRTCChannel.rtspURL, rtspURL);
 
-	// ´´½¨¾ä±ú
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	EasyRTC_Device_Create(&easyRTCChannel.rtcHandle, serverIP, serverPort, accessToken, "device", deviceID, 1, __EasyRTC_Data_Callback, (void*)&easyRTCChannel);
-	sprintf(easyRTCChannel.channelID, "340200000013200000%02d", 1);		// Í¨µÀID
-	// ´ËÊ±ÏÈÉèÖÃÒ»´ÎÍ¨µÀID, Èç¹ûÒôÊÓÆµ±àÂë²»Í¬,Ôò¿ÉÒÔÔÚ»ñÈ¡µ½Êµ¼Ê±àÂëºóÔÙÉèÖÃ
+	sprintf(easyRTCChannel.channelID, "340200000013200000%02d", 1);		// Í¨ï¿½ï¿½ID
+	// ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Í¨ï¿½ï¿½ID, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ë²»Í¬,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú»ï¿½È¡ï¿½ï¿½Êµï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	EasyRTC_Device_SetChannelInfo(easyRTCChannel.rtcHandle, easyRTCChannel.id, easyRTCChannel.channelID, EASYRTC_CODEC_H264, EASYRTC_CODEC_ALAW);
 
 	Easy_Handle rtspHandle = NULL;
@@ -282,7 +288,7 @@ int main(int argc, char* argv[])
 	EasyRTSP_SetCallback(rtspHandle, __RTSPClientCallBack);
 	EasyRTSP_OpenStream(rtspHandle, 0, rtspURL, EASY_RTP_OVER_TCP, mediaType, NULL, NULL, (void*)&easyRTCChannel, 1000, 0, 0x01, timeoutSecs);
 
-	printf("°´Èı´Î»Ø³µ½áÊø.\n");
+	printf("ï¿½ï¿½ï¿½ï¿½ï¿½Î»Ø³ï¿½ï¿½ï¿½ï¿½ï¿½.\n");
 	getchar();
 	getchar();
 	getchar();
@@ -290,10 +296,10 @@ int main(int argc, char* argv[])
 	EasyRTSP_CloseStream(rtspHandle);
 	EasyRTSP_Deinit(&rtspHandle);
 
-	// ÊÍ·Å¾ä±ú
+	// ï¿½Í·Å¾ï¿½ï¿½
 	EasyRTC_Device_Release(&easyRTCChannel.rtcHandle);
 
-	// ·´³õÊ¼»¯
+	// ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
 	EasyRTC_Device_Deinit();
 
 	return 0;

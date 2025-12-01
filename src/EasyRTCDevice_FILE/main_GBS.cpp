@@ -348,6 +348,15 @@ int __EasyRTC_Data_Callback(void* userptr, const char* peerUUID, EASYRTC_DATA_TY
 	{
 		printf("Peer Disconnect..\n");
 	}
+
+	else if (EASYRTC_CALLBACK_TYPE_PASSIVE_CALL == dataType)
+	{
+		printf("Passive call..  peerUUID[%s]\n", peerUUID);
+
+		return 1;		// 返回1表示自动接受	如果返回0,则需要调用EasyRTC_Device_PassiveCallResponse来处理该请求: 接受或拒绝
+	}        
+        
+        
 	else if (EASYRTC_CALLBACK_TYPE_PEER_CLOSED == dataType)
 	{
 		printf("Peer Close..\n");

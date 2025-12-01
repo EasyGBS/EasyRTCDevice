@@ -60,7 +60,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L../../linux/x64 -L../GBSDevice/dist/Debug/GNU-Linux -Wl,-rpath,'.' -lEasyRTCDevice -lEasyRTC
+LDLIBSOPTIONS=-L../../linux/x64 -L../GBSDevice/dist/Release/GNU-Linux -Wl,-rpath,'.' -lEasyRTCDevice -lEasyRTC
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}

@@ -62,7 +62,7 @@
         <linkerTool>
           <linkerAddLib>
             <pElem>../../linux/x64</pElem>
-            <pElem>../GBSDevice/dist/Debug/GNU-Linux</pElem>
+            <pElem>../GBSDevice/dist/Release/GNU-Linux</pElem>
           </linkerAddLib>
           <linkerDynSerch>
             <pElem>.</pElem>
@@ -122,6 +122,9 @@
         </cTool>
         <ccTool>
           <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>.</pElem>
+          </incDir>
         </ccTool>
         <fortranCompilerTool>
           <developmentMode>5</developmentMode>
@@ -129,6 +132,19 @@
         <asmTool>
           <developmentMode>5</developmentMode>
         </asmTool>
+        <linkerTool>
+          <linkerAddLib>
+            <pElem>../GBSDevice/dist/Release/GNU-Linux</pElem>
+            <pElem>../../linux/x64</pElem>
+          </linkerAddLib>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+          <linkerLibItems>
+            <linkerLibLibItem>EasyRTCDevice</linkerLibLibItem>
+            <linkerLibLibItem>EasyRTC</linkerLibLibItem>
+          </linkerLibItems>
+        </linkerTool>
       </compileType>
       <item path="FileParser/ESFileParser.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -238,7 +254,7 @@
         <linkerTool>
           <linkerAddLib>
             <pElem>../GBSDevice/dist/arm-rockchip830/arm-rockchip830-Linux</pElem>
-            <pElem>../../linux/arm-rockchip830</pElem>
+            <pElem>../../linux/arm-rockchip830_dynamic</pElem>
           </linkerAddLib>
           <linkerDynSerch>
             <pElem>.</pElem>

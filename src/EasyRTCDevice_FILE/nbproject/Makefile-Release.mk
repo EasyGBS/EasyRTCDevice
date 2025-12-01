@@ -60,7 +60,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-L../GBSDevice/dist/Release/GNU-Linux -L../../linux/x64 -Wl,-rpath,'.' -lEasyRTCDevice -lEasyRTC
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -73,47 +73,47 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/easyrtcdevice_file: ${OBJECTFILES}
 ${OBJECTDIR}/FileParser/ESFileParser.o: FileParser/ESFileParser.cpp
 	${MKDIR} -p ${OBJECTDIR}/FileParser
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/ESFileParser.o FileParser/ESFileParser.cpp
+	$(COMPILE.cc) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/ESFileParser.o FileParser/ESFileParser.cpp
 
 ${OBJECTDIR}/FileParser/ESParser.o: FileParser/ESParser.cpp
 	${MKDIR} -p ${OBJECTDIR}/FileParser
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/ESParser.o FileParser/ESParser.cpp
+	$(COMPILE.cc) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/ESParser.o FileParser/ESParser.cpp
 
 ${OBJECTDIR}/FileParser/buff.o: FileParser/buff.cpp
 	${MKDIR} -p ${OBJECTDIR}/FileParser
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/buff.o FileParser/buff.cpp
+	$(COMPILE.cc) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/buff.o FileParser/buff.cpp
 
 ${OBJECTDIR}/FileParser/g711.o: FileParser/g711.cpp
 	${MKDIR} -p ${OBJECTDIR}/FileParser
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/g711.o FileParser/g711.cpp
+	$(COMPILE.cc) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/g711.o FileParser/g711.cpp
 
 ${OBJECTDIR}/FileParser/getsps.o: FileParser/getsps.cpp
 	${MKDIR} -p ${OBJECTDIR}/FileParser
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/getsps.o FileParser/getsps.cpp
+	$(COMPILE.cc) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/getsps.o FileParser/getsps.cpp
 
 ${OBJECTDIR}/FileParser/h265_sei.o: FileParser/h265_sei.cpp
 	${MKDIR} -p ${OBJECTDIR}/FileParser
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/h265_sei.o FileParser/h265_sei.cpp
+	$(COMPILE.cc) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/h265_sei.o FileParser/h265_sei.cpp
 
 ${OBJECTDIR}/FileParser/h265_stream.o: FileParser/h265_stream.cpp
 	${MKDIR} -p ${OBJECTDIR}/FileParser
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/h265_stream.o FileParser/h265_stream.cpp
+	$(COMPILE.cc) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FileParser/h265_stream.o FileParser/h265_stream.cpp
 
 ${OBJECTDIR}/gettimeofdayEx.o: gettimeofdayEx.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/gettimeofdayEx.o gettimeofdayEx.cpp
+	$(COMPILE.cc) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/gettimeofdayEx.o gettimeofdayEx.cpp
 
 ${OBJECTDIR}/main_GBS.o: main_GBS.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main_GBS.o main_GBS.cpp
+	$(COMPILE.cc) -O2 -I. -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main_GBS.o main_GBS.cpp
 
 # Subprojects
 .build-subprojects:
