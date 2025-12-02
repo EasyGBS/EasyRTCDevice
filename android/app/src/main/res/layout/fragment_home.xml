@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <!-- 主视频视图 (显示CameraHelper本地预览) -->
+    <TextureView
+        android:id="@+id/mainVideoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <!-- 用户列表抽屉 -->
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 主内容区域 - 包含小窗口和按钮 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 小窗口容器 - 添加点击效果 -->
+            <FrameLayout
+                android:id="@+id/smallVideoContainer"
+                android:layout_width="120dp"
+                android:layout_height="160dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="16dp"
+                android:background="@drawable/small_window_background"
+                android:clickable="true"
+                android:elevation="8dp"
+                android:focusable="true"
+                android:visibility="visible">
+
+                <TextureView
+                    android:id="@+id/smallVideoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </FrameLayout>
+
+            <!-- 底部按钮容器 - 修复定位问题 -->
+            <LinearLayout
+                android:id="@+id/bottomButtonContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="32dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <!-- 抽屉按钮 -->
+                <ImageButton
+                    android:id="@+id/drawerButton"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/ic_drawer_background"
+                    android:contentDescription="@string/open_rtc_user_label"
+                    android:elevation="8dp"
+                    android:src="@drawable/ic_menu" />
+
+                <!-- 关闭通话按钮 -->
+                <ImageButton
+                    android:id="@+id/endCallButton"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="@drawable/ic_drawer_red_background"
+                    android:contentDescription="@string/close_rtc_label"
+                    android:drawableTint="@android:color/white"
+                    android:elevation="8dp"
+                    android:src="@drawable/ic_white_call" />
+
+                <!-- 切换摄像头按钮 -->
+                <ImageButton
+                    android:id="@+id/switchCameraButton"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:background="@drawable/ic_drawer_background"
+                    android:contentDescription="@string/change_camera"
+                    android:elevation="8dp"
+                    android:src="@drawable/ic_switch_camera" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- 抽屉内容 -->
+        <LinearLayout
+            android:id="@+id/drawerContent"
+            android:layout_width="210dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@android:color/white"
+            android:elevation="16dp"
+            android:orientation="vertical">
+
+            <!-- 抽屉标题 -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/b_n_active"
+                android:padding="16dp"
+                android:text="@string/rtc_user_label"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <!-- 用户列表 -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/userRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="8dp" />
+
+            <!-- 空状态提示 -->
+            <TextView
+                android:id="@+id/emptyStateText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="32dp"
+                android:text="@string/rtc_user_online_empty"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</RelativeLayout>
