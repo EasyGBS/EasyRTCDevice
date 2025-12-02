@@ -24,7 +24,8 @@ EasyRTCDevice实时通信技术，是一种基于RTC技术实现的P2P+SFU视频
 ## 目录说明
 
 	./
-	./android	//安卓各平台EasyRTC库文件
+	./android	//安卓平台 Demo
+	./bin		//各平台对应的 EasyRTC 库文件
 	./src		//调用示例代码，C&C++
 	./embedded	//各种嵌入式平台EasyRTC设备端版本
 	./include	//EasyRTCDevice.h头文件
